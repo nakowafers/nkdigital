@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name – Web Developer & Designer</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #222;
+      --card-bg: white;
+      --nav-bg: #222831;
+      --accent-color: #00adb5;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --card-bg: #1e1e1e;
+      --nav-bg: #1f1f1f;
+      --accent-color: #00adb5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    header, section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #019aa1;
+      transform: scale(1.05);
+    }
+
+    .services, .portfolio {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    footer {
+      background: var(--nav-bg);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    a {
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .services, .portfolio {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home">
+    <h1>Hi, I’m [Your Name]</h1>
+    <p>I design beautiful, responsive websites and eye-catching graphics that help brands stand out.</p>
+    <a href="#contact" class="button">Let’s Work Together</a>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>What I Do</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Clean, modern websites built to perform across all devices.</p>
+      </div>
+      <div class="card">
+        <h3>Graphic Design</h3>
+        <p>Logos, branding, social media graphics, and more.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>User-first digital experiences that convert and delight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Recent Work</h2>
+    <div class="portfolio">
+      <div class="card">
+        <h3>Project One</h3>
+        <p>Landing page for a SaaS startup. Responsive, fast, and brand-aligned.</p>
+      </div>
+      <div class="card">
+        <h3>Project Two</h3>
+        <p>Brand identity and logo design for an indie fashion label.</p>
+      </div>
+      <div class="card">
+        <h3>Project Three</h3>
+        <p>Portfolio site for a photographer with clean galleries and booking features.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Let’s Connect</h2>
+    <p>📧 <a href="mailto:yourname@email.com">yourname@email.com</a></p>
+    <p>🌐 <a href="https://linkedin.com">LinkedIn</a> | <a href="https://instagram.com">Instagram</a> | <a href="https://github.com">GitHub</a></p>
+    <a href="mailto:yourname@email.com" class="button">Let’s Talk</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript: Dark Mode Toggle -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      const btn = document.querySelector('.toggle-btn');
+      if (document.body.classList.contains('dark')) {
+        btn.textContent = '☀️ Light Mode';
+      } else {
+        btn.textContent = '🌙 Dark Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
